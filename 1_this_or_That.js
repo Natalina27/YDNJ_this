@@ -38,7 +38,34 @@ for(let i = 0; i < 10; i++){
         foo(i);
     }
 }
-console.log(foo.count );
+console.log(foo.count);
 
+//3.
+function foo1() {
+    foo1.count = 4; // `foo` ссылается на саму себя
+}
+
+setTimeout( function(){
+    // анонимная функция (без имени), не может
+    // ссылаться на себя
+}, 10 );
+
+// right solution
+
+function fooR(num) {
+    console.log('foo: ' + num);
+    this.count++;
+    //  console.log(this );
+}
+
+fooR.count = 0;
+
+for(let i = 0; i < 10; i++){
+    if(i > 5){
+        //foo(i);
+        foo.call(fooR, i); // it works
+    }
+}
+console.log(fooR.count);
 
 
