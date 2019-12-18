@@ -1,7 +1,5 @@
 function identify() {
     return this.name.toUpperCase();
-
-
 }
 
 function speak() {
@@ -20,7 +18,7 @@ const you ={
 identify.call(me);
 identify.call(you);
 
-speak.call(me);
-speak.call(you);
+speak.call(me); //Hello, I'm DASHA
+speak.call(you); //Hello, I'm MISHA
 
 
