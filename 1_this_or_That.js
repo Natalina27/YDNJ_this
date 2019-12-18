@@ -68,4 +68,20 @@ for(let i = 0; i < 10; i++){
 }
 console.log(fooR.count);
 
+//scope
+function fooScope() {
+    let a = 2;
+    this.bar();
+    //bar();
+    //console.log(this);
+
+}
+
+function bar() {
+    console.log( this.a );
+}
+bar();//undefined
+fooScope(); //TypeError: this.bar is not a function
+
+
 
